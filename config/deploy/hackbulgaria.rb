@@ -1,6 +1,8 @@
 server '188.166.49.111', user: 'hack', roles: %w(web app db)
 server '77.70.99.57', user: 'hack', roles: %w(grader)
 
+set :repo_url, 'git://github.com/HackBulgaria/maycamp_arena.git'
+
 set :deploy_to, '/hack/maycamp_arena'
 set :rails_env, 'production'
 set :user, 'hack'
