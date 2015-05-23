@@ -32,10 +32,6 @@
       action: apt pkg=lxc-docker state=present update_cache=yes
       sudo: yes
 
-    - name: Restart docker
-      sudo: yes
-      service: name=docker.io state=restarted
-
     - name: RVM public key
       shell: gpg --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
 
