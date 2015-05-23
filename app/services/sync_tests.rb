@@ -5,7 +5,7 @@ class SyncTests
   end
 
   def call
-    last_update = ::Configuration.get(::Configuration::TESTS_UPDATED_AT)
+    last_update = ::Configuration.get(::Configuration::TESTS_UPDATED_AT) || Time.at(0)
     if last_update > tests_updated_at
       puts "Tests changed at #{last_update}, while the current version is from #{tests_updated_at}. Syncing..."
       sync_tests(last_update)
