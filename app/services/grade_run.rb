@@ -66,8 +66,8 @@ class GradeRun
       run.problem.input_files[0...tests].zip(run.problem.output_files).map { |input_file, answer_file|
         command = %Q{docker run #{ mappings(input_file) }\
           -m #{docker_memory_limit}\
-          --cpuset=0\
-          --d --net=none --ulimit nproc=1024:2048
+          --cpuset-cpus=0\
+          -d --net=none --ulimit nproc=1024:2048\
           -u root grader\
            /sandbox/runner_fork.rb -i /sandbox/input -o /sandbox/output -p 50 -m #{memory_limit} -t #{ timeout } -- #{ executable }}
         puts command
