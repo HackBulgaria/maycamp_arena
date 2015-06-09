@@ -68,6 +68,7 @@ class GradeRun
           -m #{docker_memory_limit}\
           --cpuset=0\
           -u root -d --net=none grader\
+          --ulimit nproc=512:1024
            /sandbox/runner_fork.rb -i /sandbox/input -o /sandbox/output -p 50 -m #{memory_limit} -t #{ timeout } -- #{ executable }}
         puts command
         container_id = %x{#{ command }}
