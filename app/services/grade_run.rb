@@ -67,7 +67,7 @@ class GradeRun
         command = %Q{docker run #{ mappings(input_file) }\
           -m #{docker_memory_limit}\
           --cpuset-cpus=0\
-          -d --net=none --ulimit nproc=1024:2048\
+          -d --net=none --ulimit nproc=512:1024\
           -u root grader\
            /sandbox/runner_fork.rb -i /sandbox/input -o /sandbox/output -p 50 -m #{memory_limit} -t #{ timeout } -- #{ executable }}
         puts command
