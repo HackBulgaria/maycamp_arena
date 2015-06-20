@@ -1,5 +1,4 @@
 class SyncTests
-
   def initialize(tests_updated_at)
     @tests_updated_at = tests_updated_at
   end
@@ -27,8 +26,9 @@ class SyncTests
   def sync_sets(configuration)
     from = File.join(configuration["rsync"], "/")
     to = File.join($config[:sets_root], "/")
-  
+    options = configuration.fetch("rsync_options", "-az -e ssh --delete")
+
     puts "Syncing tests from #{from} to #{to}"
-    system "rsync -az -e ssh --delete #{from} #{to}"
+    system "rsync #{options} #{from} #{to}"
   end
 end
