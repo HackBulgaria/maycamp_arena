@@ -50,7 +50,7 @@ class GradeRun
 
       if run.language == Run::LANG_C_CPP
         puts "Compiling..."
-        verbose_system "g++ program.cpp -o program -O2 -static -lm -x c++"
+        verbose_system "g++ program.cpp -o program -O2 -static -lm -x c++ -std=c++0x"
       elsif run.language == Run::LANG_JAVA
         puts "Compiling..."
         verbose_system "javac #{"#{ run.public_class_name }.java"}"
