@@ -1,5 +1,6 @@
 server '188.166.49.111', user: 'hack', roles: %w(web app db)
 server '77.70.99.57', user: 'hack', roles: %w(grader)
+server '188.166.82.8', user: 'hack', roles: %w(grader)
 
 set :repo_url, 'git://github.com/HackBulgaria/maycamp_arena.git'
 
